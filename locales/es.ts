@@ -77,7 +77,7 @@ export const es: typeof en = {
     cred2: "Inglés y Español Fluidos",
     cred3: "Técnicas y Materiales Estándar de EE.UU.",
     bookConsultation: "Agenda una Consulta con la Dra. Elena",
-    whatsappMsg: "Hola%20Dra.%20Elena!%20Me%20gustaría%20agendar%20una%20consulta%20virtual.",
+    whatsappMsg: "Hola Dra. Elena! Me gustaría agendar una consulta virtual.",
   },
   testimonials: {
     title: "Lo Que Dicen Nuestros Pacientes",
@@ -138,7 +138,7 @@ export const es: typeof en = {
       "Seguimiento post-tratamiento"
     ],
     cta: "Obtén Tu Cotización Gratis",
-    whatsappMsg: "Hola!%20Me%20gustaría%20obtener%20una%20cotización%20gratis%20para%20tratamiento%20dental%20en%20Ecuador.%20Me%20pueden%20ayudar?",
+    whatsappMsg: "Hola! Me gustaría obtener una cotización gratis para tratamiento dental en Ecuador. ¿Me pueden ayudar?",
     note: "*Los precios mostrados son promedios. Cotización final basada en tu caso específico después de consulta virtual.",
     specialPackage: {
       title: "Paquete Todo Incluido - Diseño de Sonrisa",
@@ -156,7 +156,7 @@ export const es: typeof en = {
         "Todas las visitas de seguimiento incluidas"
       ],
       cta: "Solicitar Información",
-      whatsappMsg: "Hola!%20Estoy%20interesado%20en%20el%20Paquete%20Todo%20Incluido%20de%20Diseño%20de%20Sonrisa.%20Me%20puede%20dar%20más%20detalles%20y%20el%20precio?"
+      whatsappMsg: "Hola! Estoy interesado en el Paquete Todo Incluido de Diseño de Sonrisa. ¿Me puede dar más detalles y el precio?"
     },
     treatments: [
       {

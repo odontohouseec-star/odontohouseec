@@ -75,7 +75,7 @@ export const en = {
     cred2: "Fluent English & Spanish",
     cred3: "US-Standard Techniques & Materials",
     bookConsultation: "Book a Consultation with Dr. Elena",
-    whatsappMsg: "Hi%20Dr.%20Elena!%20I'd%20like%20to%20schedule%20a%20virtual%20consultation.",
+    whatsappMsg: "Hi Dr. Elena! I'd like to schedule a virtual consultation.",
   },
   testimonials: {
     title: "What Our Patients Say",
@@ -136,7 +136,7 @@ export const en = {
       "Follow-up care"
     ],
     cta: "Get Your Free Quote",
-    whatsappMsg: "Hi!%20I%20would%20like%20to%20get%20a%20free%20quote%20for%20dental%20treatment%20in%20Ecuador.%20Can%20you%20help%20me?",
+    whatsappMsg: "Hi! I would like to get a free quote for dental treatment in Ecuador. Can you help me?",
     note: "*Prices shown are averages. Final quote based on your specific case after virtual consultation.",
     specialPackage: {
       title: "All-Inclusive Smile Design Package",
@@ -154,7 +154,7 @@ export const en = {
         "All follow-up visits included"
       ],
       cta: "Ask for Details",
-      whatsappMsg: "Hi!%20I'm%20interested%20in%20the%20All-Inclusive%20Smile%20Design%20Package.%20Can%20you%20give%20me%20more%20details%20and%20pricing?"
+      whatsappMsg: "Hi! I'm interested in the All-Inclusive Smile Design Package. Can you give me more details and pricing?"
     },
     treatments: [
       {
