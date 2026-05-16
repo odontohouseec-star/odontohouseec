@@ -42,3 +42,11 @@ next-env.d.ts
 
 # agents (local AI configuration - not for repo)
 .agents/
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example

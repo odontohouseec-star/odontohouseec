@@ -12,9 +12,12 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
+  output: "standalone",
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
 };
 
 export default nextConfig;
+
+import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());

@@ -57,3 +57,5 @@ export const config = {
     '/((?!_next|api|.*\\..*).*)',
   ],
 };
+
+export const runtime = 'experimental-edge';
