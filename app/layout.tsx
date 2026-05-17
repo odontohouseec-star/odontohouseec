@@ -114,6 +114,12 @@ export default async function RootLayout({
             });
           `}
         </Script>
+        {/* Cloudflare Web Analytics */}
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "54ef4c1bf0bb4b15af3b1cd16bfd2616"}'
+          strategy="afterInteractive"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <LanguageProvider initialLanguage={locale}>
