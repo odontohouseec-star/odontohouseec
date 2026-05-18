@@ -73,7 +73,7 @@ export const Hero = ({ t }: { t: Dictionary }) => {
             xmlns="http://www.w3.org/2000/svg"
             className="w-1/2 h-full block"
           >
-            <path d="M0,50 C360,100 1080,0 1440,50 C1800,100 2520,0 2880,50 V120 H0 Z" fill="white" opacity="0.3" />
+            <path d="M0,50 C360,100 1080,0 1440,50 V120 H0 Z" fill="white" opacity="0.3" />
           </svg>
           <svg
             viewBox="0 -240 1440 360"
@@ -81,47 +81,47 @@ export const Hero = ({ t }: { t: Dictionary }) => {
             xmlns="http://www.w3.org/2000/svg"
             className="w-1/2 h-full block"
           >
-            <path d="M0,50 C360,100 1080,0 1440,50 C1800,100 2520,0 2880,50 V120 H0 Z" fill="white" opacity="0.3" />
+            <path d="M0,50 C360,100 1080,0 1440,50 V120 H0 Z" fill="white" opacity="0.3" />
           </svg>
         </div>
 
         {/* Layer 2 (Middle) */}
         <div className="absolute inset-0 w-[200%] h-full flex animate-wave-middle" style={{ width: "200%" }}>
           <svg
-            viewBox="0 -240 1440 360"
+            viewBox="0 -240 960 360"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
             className="w-1/2 h-full block"
           >
-            <path d="M0,65 C240,110 720,20 960,65 C1200,110 1680,20 1920,65 C2160,110 2640,20 2880,65 V120 H0 Z" fill="white" opacity="0.6" />
+            <path d="M0,65 C240,110 720,20 960,65 V120 H0 Z" fill="white" opacity="0.6" />
           </svg>
           <svg
-            viewBox="0 -240 1440 360"
+            viewBox="0 -240 960 360"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
             className="w-1/2 h-full block"
           >
-            <path d="M0,65 C240,110 720,20 960,65 C1200,110 1680,20 1920,65 C2160,110 2640,20 2880,65 V120 H0 Z" fill="white" opacity="0.6" />
+            <path d="M0,65 C240,110 720,20 960,65 V120 H0 Z" fill="white" opacity="0.6" />
           </svg>
         </div>
 
         {/* Layer 3 (Front) */}
         <div className="absolute inset-0 w-[200%] h-full flex animate-wave-front" style={{ width: "200%" }}>
           <svg
-            viewBox="0 -240 1440 360"
+            viewBox="0 -240 720 360"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
             className="w-1/2 h-full block"
           >
-            <path d="M0,80 C180,115 540,45 720,80 C900,115 1260,45 1440,80 C1620,115 1980,45 2160,80 C2340,115 2700,45 2880,80 V120 H0 Z" fill="white" />
+            <path d="M0,80 C180,115 540,45 720,80 V120 H0 Z" fill="white" />
           </svg>
           <svg
-            viewBox="0 -240 1440 360"
+            viewBox="0 -240 720 360"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
             className="w-1/2 h-full block"
           >
-            <path d="M0,80 C180,115 540,45 720,80 C900,115 1260,45 1440,80 C1620,115 1980,45 2160,80 C2340,115 2700,45 2880,80 V120 H0 Z" fill="white" />
+            <path d="M0,80 C180,115 540,45 720,80 V120 H0 Z" fill="white" />
           </svg>
         </div>
       </div>
