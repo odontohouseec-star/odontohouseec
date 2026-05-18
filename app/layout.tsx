@@ -93,8 +93,8 @@ export default async function RootLayout({
     >
       <head>
         {/* Google Analytics */}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -110,7 +110,7 @@ export default async function RootLayout({
         <Script
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "54ef4c1bf0bb4b15af3b1cd16bfd2616"}'
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </head>
       <body className="min-h-full flex flex-col">
