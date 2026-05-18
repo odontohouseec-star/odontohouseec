@@ -60,10 +60,13 @@ const defaultPreferences: CookiePreferences = {
   marketing: false,
 };
 
-const enableAnalytics = () => {
+const applyConsent = (prefs: CookiePreferences) => {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("consent", "update", {
-      analytics_storage: "granted",
+      analytics_storage: prefs.analytics ? "granted" : "denied",
+      ad_storage: prefs.marketing ? "granted" : "denied",
+      ad_user_data: prefs.marketing ? "granted" : "denied",
+      ad_personalization: prefs.marketing ? "granted" : "denied",
     });
   }
 };
@@ -86,9 +89,7 @@ export const CookieConsent = () => {
     } else {
       const parsed = JSON.parse(stored) as CookiePreferences;
       setPreferences(parsed);
-      if (parsed.analytics) {
-        enableAnalytics();
-      }
+      applyConsent(parsed);
     }
   }, []);
 
@@ -99,7 +100,7 @@ export const CookieConsent = () => {
     setShowBanner(false);
     setShowSettings(false);
     setShowFloatingButton(false);
-    enableAnalytics();
+    applyConsent(newPrefs);
   };
 
   const handleReject = () => {
@@ -109,6 +110,7 @@ export const CookieConsent = () => {
     setShowBanner(false);
     setShowSettings(false);
     setShowFloatingButton(isPrivacyPage);
+    applyConsent(newPrefs);
   };
 
   const handleSavePreferences = () => {
@@ -116,9 +118,7 @@ export const CookieConsent = () => {
     setShowBanner(false);
     setShowSettings(false);
     setShowFloatingButton(isPrivacyPage);
-    if (preferences.analytics) {
-      enableAnalytics();
-    }
+    applyConsent(preferences);
   };
 
   const shouldShowFloating = showFloatingButton || isPrivacyPage;

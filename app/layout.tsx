@@ -92,12 +92,29 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Google Analytics */}
+        {/* Google Consent Mode v2 — default to denied until user interacts */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              var consent = { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', functionality_storage: 'granted', personalization_storage: 'granted', security_storage: 'granted' };
+              try {
+                var stored = localStorage.getItem('cookie_consent');
+                if (stored) {
+                  var prefs = JSON.parse(stored);
+                  if (prefs.analytics) consent.analytics_storage = 'granted';
+                  if (prefs.marketing) { consent.ad_storage = 'granted'; consent.ad_user_data = 'granted'; consent.ad_personalization = 'granted'; }
+                }
+              } catch(e) {}
+              gtag('consent', 'default', consent);
+            `,
+          }}
+        />
+        {/* Google Analytics — loads with consent already defaulted */}
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
         <Script id="google-analytics" strategy="lazyOnload">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
               page_title: document.title,
