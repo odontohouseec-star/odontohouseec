@@ -4,6 +4,7 @@ export const SchemaOrg = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": ["MedicalClinic", "Dentist"],
+    "@id": `${BASE_URL}/#organization`,
     "name": "Odonto House",
     "description": "Premium Smile Design, Orthodontics, and Expert Dental Care in Guayaquil, Ecuador. Save up to 70% on dental treatments.",
     "url": BASE_URL,
@@ -63,6 +64,7 @@ export const SchemaOrg = () => {
   const doctorSchema = {
     "@context": "https://schema.org",
     "@type": "Physician",
+    "@id": `${BASE_URL}/#doctor`,
     "name": "Dr. Elena Barroso",
     "jobTitle": "Specialist in Aesthetic Dentistry",
     "description": "Dr. Elena Barroso is a dedicated specialist with over 10 years of experience in aesthetic dentistry. Fluent in English and trained in the latest global techniques.",
@@ -76,6 +78,9 @@ export const SchemaOrg = () => {
     },
     "telephone": WA_PHONE,
     "sameAs": "https://instagram.com/odontohouse",
+    "worksFor": {
+      "@id": `${BASE_URL}/#organization`,
+    },
     "memberOf": [
       {
         "@type": "MedicalOrganization",

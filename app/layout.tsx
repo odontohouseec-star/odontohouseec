@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { en } from "@/locales/en";
+import { es } from "@/locales/es";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { BASE_URL } from "@/lib/constants";
 
@@ -13,67 +14,101 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
-  title: {
-    default: "Odonto House | Premium Dental Tourism in Ecuador",
-    template: "%s | Odonto House",
-  },
-  description: en.hero.headline + " " + en.hero.subtitle,
-  keywords: [
-    "dental tourism ecuador",
-    "smile design ecuador",
-    "dentist guayaquil",
-    "dental implants ecuador",
-    "Hollywood Smile ecuador",
-    "all on 4 ecuador",
-    "all on 6 ecuador",
-    "porcelain veneers ecuador",
-    "Emax veneers ecuador",
-    "zirconia crowns ecuador",
-    "full mouth restoration ecuador",
-    "affordable dental care",
-    "turismo dental ecuador",
-    "dental tourism guayaquil",
-    "diseño de sonrisa",
-    "carillas dentales Ecuador",
-    "ortodoncia Ecuador",
-    "blanqueamiento dental Guayaquil"
-  ],
-  alternates: {
-    canonical: BASE_URL,
-  },
-  openGraph: {
-    title: "Odonto House | Dental Tourism Ecuador - Save 70% on Implants, Veneers & Smile Design",
-    description: "Get your dream smile in Ecuador for a fraction of the US cost. Premium dental implants, Hollywood Smile, porcelain veneers & full mouth restoration. Save up to 70% vs USA prices.",
-    url: BASE_URL,
-    siteName: "Odonto House",
-    locale: "en_US",
-    alternateLocale: "es_EC",
-    type: "website",
-    images: [
-      {
-        url: "/hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Odonto House - Premium Dental Clinic in Guayaquil, Ecuador. Dental tourism experts.",
-      },
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("NEXT_LOCALE")?.value as "en" | "es") || "en";
+  const t = locale === "es" ? es : en;
+
+  const titleDefault =
+    locale === "es"
+      ? "Odonto House | Turismo Dental Premium en Ecuador"
+      : "Odonto House | Premium Dental Tourism in Ecuador";
+
+  const ogTitle =
+    locale === "es"
+      ? "Odonto House | Turismo Dental Ecuador - Ahorra 70% en Implantes, Carillas y Diseño de Sonrisa"
+      : "Odonto House | Dental Tourism Ecuador - Save 70% on Implants, Veneers & Smile Design";
+
+  const ogDescription =
+    locale === "es"
+      ? "Consigue la sonrisa de tus sueños en Ecuador por una fracción del costo en USA. Implantes dentales premium, Hollywood Smile, carillas de porcelana y restauración bucal completa. Ahorra hasta 70% vs precios de USA."
+      : "Get your dream smile in Ecuador for a fraction of the US cost. Premium dental implants, Hollywood Smile, porcelain veneers & full mouth restoration. Save up to 70% vs USA prices.";
+
+  const twitterTitle =
+    locale === "es"
+      ? "Odonto House | Turismo Dental Ecuador - Ahorra 70%"
+      : "Odonto House | Dental Tourism Ecuador - Save 70%";
+
+  const twitterDescription =
+    locale === "es"
+      ? "Implantes dentales premium, Hollywood Smile y carillas en Ecuador. Ahorra hasta 70% vs precios de USA."
+      : "Premium dental implants, Hollywood Smile & veneers in Ecuador. Save up to 70% vs USA prices.";
+
+  return {
+    metadataBase: new URL(BASE_URL),
+    title: {
+      default: titleDefault,
+      template: "%s | Odonto House",
+    },
+    description: t.hero.headline + " " + t.hero.subtitle,
+    keywords: [
+      "dental tourism ecuador",
+      "smile design ecuador",
+      "dentist guayaquil",
+      "dental implants ecuador",
+      "Hollywood Smile ecuador",
+      "all on 4 ecuador",
+      "all on 6 ecuador",
+      "porcelain veneers ecuador",
+      "Emax veneers ecuador",
+      "zirconia crowns ecuador",
+      "full mouth restoration ecuador",
+      "affordable dental care",
+      "turismo dental ecuador",
+      "dental tourism guayaquil",
+      "diseño de sonrisa",
+      "carillas dentales Ecuador",
+      "ortodoncia Ecuador",
+      "blanqueamiento dental Guayaquil",
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Odonto House | Dental Tourism Ecuador - Save 70%",
-    description: "Premium dental implants, Hollywood Smile & veneers in Ecuador. Save up to 70% vs USA prices.",
-    images: ["/hero.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  other: {
-    "google": "notranslate",
-  },
-};
+    alternates: {
+      canonical: BASE_URL,
+      languages: {
+        en: BASE_URL,
+        es: BASE_URL,
+        "x-default": BASE_URL,
+      },
+    },
+    openGraph: {
+      title: ogTitle,
+      description: ogDescription,
+      url: BASE_URL,
+      siteName: "Odonto House",
+      locale: locale === "es" ? "es_EC" : "en_US",
+      alternateLocale: locale === "es" ? "en_US" : "es_EC",
+      type: "website",
+      images: [
+        {
+          url: "/hero.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Odonto House - Premium Dental Clinic in Guayaquil, Ecuador. Dental tourism experts.",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: twitterTitle,
+      description: twitterDescription,
+      images: ["/hero.jpg"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    manifest: "/manifest.webmanifest",
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -87,7 +122,6 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      translate="no"
       className={`${montserrat.variable} h-full antialiased`}
       suppressHydrationWarning
     >
@@ -139,5 +173,3 @@ export default async function RootLayout({
     </html>
   );
 }
-
-
