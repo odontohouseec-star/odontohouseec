@@ -49,7 +49,7 @@ export const Pricing = ({ t, locale }: { t: Dictionary; locale: string }) => {
                 {content.specialPackage.subtitle}
               </p>
               
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
+               <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-8">
                 <a 
                   href={waLink(content.specialPackage.whatsappMsg)}
                   target="_blank"

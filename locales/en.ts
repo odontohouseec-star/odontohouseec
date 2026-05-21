@@ -61,10 +61,10 @@ export const en = {
     qualityDesc: "We use the same US-approved materials and state-of-the-art equipment.",
     englishStaffTitle: "English-Speaking Staff",
     englishStaffDesc: "Our lead doctor and team communicate fluently in English — zero language barrier.",
-    travelAssistanceTitle: "Travel Assistance",
-    travelAssistanceDesc: "Airport pick-up, hotel recommendations, and scheduling support included.",
-    conciergeTitle: "Concierge Experience",
-    conciergeDesc: "From airport pick-up to hotel recommendations, we ensure a seamless and safe trip.",
+      travelAssistanceTitle: "Travel Assistance",
+      travelAssistanceDesc: "Airport pick-up at José Joaquín de Olmedo International (GYE), guest suite accommodation, and scheduling support included.",
+      conciergeTitle: "Concierge Experience",
+      conciergeDesc: "From airport pick-up to your private guest suite, we ensure a seamless and safe trip.",
   },
   doctor: {
     meet: "Meet Dr. Elena Barroso",
@@ -118,6 +118,18 @@ export const en = {
       {
         q: "What payment methods do you accept?",
         a: "We accept major international credit cards, Zelle, cash, and wire transfers.",
+      },
+      {
+        q: "Which airport do I fly into?",
+        a: "José Joaquín de Olmedo International Airport (GYE) in Guayaquil. We pick you up directly from the terminal and take you to our private guest suites at the clinic.",
+      },
+      {
+        q: "How many days do I need to stay?",
+        a: "Most Smile Design treatments are completed in 3 to 5 days. We recommend planning your stay for the full duration of your treatment.",
+      },
+      {
+        q: "Where will I stay during treatment?",
+        a: "Our clinic has its own private guest suites. The All-Inclusive Package includes your stay with meals, so you recover comfortably without leaving the facility.",
       },
     ]
   },

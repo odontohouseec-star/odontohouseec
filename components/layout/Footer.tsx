@@ -6,7 +6,7 @@ import { Dictionary } from "@/lib/dictionary";
 import { WA_NUMBER, MAP_SRC, SOCIAL } from "@/lib/constants";
 
 export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
-  const [form, setForm] = useState({ name: "", email: "", treatment: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", treatment: "" });
   const [sent, setSent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -17,8 +17,8 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
     e.preventDefault();
     const treatment = form.treatment || t.footer.treatmentOptions[0];
     const message = locale === "es"
-      ? `¡Hola! Me gustaría solicitar una cotización gratuita de Odonto House.\n\n👤 *Nombre:* ${form.name}\n📧 *Email:* ${form.email}\n🦷 *Tratamiento:* ${treatment}`
-      : `Hello! I'd like to request a free quote from Odonto House.\n\n👤 *Name:* ${form.name}\n📧 *Email:* ${form.email}\n🦷 *Treatment:* ${treatment}`;
+      ? `¡Hola! Me gustaría solicitar una cotización gratuita de Odonto House.\n\n👤 *Nombre:* ${form.name}\n📧 *Email:* ${form.email}\n📞 *Teléfono:* ${form.phone}\n🦷 *Tratamiento:* ${treatment}`
+      : `Hello! I'd like to request a free quote from Odonto House.\n\n👤 *Name:* ${form.name}\n📧 *Email:* ${form.email}\n📞 *Phone:* ${form.phone}\n🦷 *Treatment:* ${treatment}`;
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${WA_NUMBER}?text=${encoded}`, "_blank", "noreferrer");
     setSent(true);
@@ -95,6 +95,17 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
                   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-gold)] transition-colors"
                   placeholder={t.footer.placeholderEmail}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1 text-gray-600">{t.footer.phone}</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-gold)] transition-colors"
+                  placeholder="+1 (555) 000-0000"
                 />
               </div>
 

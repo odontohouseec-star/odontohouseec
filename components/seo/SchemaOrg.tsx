@@ -131,6 +131,30 @@ export const SchemaOrg = () => {
           text: "We accept major international credit cards, Zelle, cash, and wire transfers.",
         },
       },
+      {
+        "@type": "Question",
+        name: "Which airport do I fly into?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "José Joaquín de Olmedo International Airport (GYE) in Guayaquil. We pick you up directly from the terminal and take you to our private guest suites at the clinic.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How many days do I need to stay?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most Smile Design treatments are completed in 3 to 5 days. We recommend planning your stay for the full duration of your treatment.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where will I stay during treatment?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our clinic has its own private guest suites. The All-Inclusive Package includes your stay with meals, so you recover comfortably without leaving the facility.",
+        },
+      },
     ],
   };
 

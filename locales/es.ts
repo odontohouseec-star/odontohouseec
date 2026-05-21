@@ -63,10 +63,10 @@ export const es: typeof en = {
     qualityDesc: "Utilizamos los mismos materiales y equipos de última generación aprobados en EE.UU.",
     englishStaffTitle: "Personal que Habla Inglés",
     englishStaffDesc: "Nuestra doctora principal y el equipo se comunican fluidamente en inglés — cero barreras del idioma.",
-    travelAssistanceTitle: "Asistencia de Viaje",
-    travelAssistanceDesc: "Recogida en el aeropuerto, recomendaciones de hoteles y apoyo en la programación incluidos.",
-    conciergeTitle: "Experiencia Concierge",
-    conciergeDesc: "Desde la recogida en el aeropuerto hasta recomendaciones de hoteles, aseguramos un viaje seguro y sin problemas.",
+      travelAssistanceTitle: "Asistencia de Viaje",
+      travelAssistanceDesc: "Recogida en el Aeropuerto Internacional José Joaquín de Olmedo (GYE), alojamiento en suites para huéspedes y apoyo en la programación incluidos.",
+      conciergeTitle: "Experiencia Concierge",
+      conciergeDesc: "Desde la recogida en el aeropuerto hasta tu suite privada para huéspedes, aseguramos un viaje seguro y sin problemas.",
   },
   doctor: {
     meet: "Conoce a la Dra. Elena Barroso",
@@ -120,6 +120,18 @@ export const es: typeof en = {
       {
         q: "¿Qué métodos de pago aceptan?",
         a: "Aceptamos las principales tarjetas de crédito internacionales, Zelle, efectivo y transferencias bancarias.",
+      },
+      {
+        q: "¿A qué aeropuerto debo volar?",
+        a: "Aeropuerto Internacional José Joaquín de Olmedo (GYE) en Guayaquil. Te recogemos directamente en la terminal y te llevamos a nuestras suites privadas para huéspedes en la clínica.",
+      },
+      {
+        q: "¿Cuántos días necesito quedarme?",
+        a: "La mayoría de los Diseños de Sonrisa se completan en 3 a 5 días. Recomendamos planear tu estadía por la duración completa de tu tratamiento.",
+      },
+      {
+        q: "¿Dónde me hospedaré durante el tratamiento?",
+        a: "Nuestra clínica cuenta con sus propias suites privadas para huéspedes. El Paquete Todo Incluido cubre tu estancia con comidas, para que te recuperes cómodamente sin salir de las instalaciones.",
       },
     ]
   },
