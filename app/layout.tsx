@@ -71,6 +71,17 @@ export async function generateMetadata(): Promise<Metadata> {
       "ortodoncia Ecuador",
       "blanqueamiento dental Guayaquil",
     ],
+    icons: {
+      icon: [
+        {
+          url: "/icon.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+      ],
+      shortcut: "/icon.png",
+      apple: "/icon.png",
+    },
     alternates: {
       canonical: BASE_URL,
       languages: {
