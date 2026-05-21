@@ -84,11 +84,6 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: BASE_URL,
-      languages: {
-        en: BASE_URL,
-        es: BASE_URL,
-        "x-default": BASE_URL,
-      },
     },
     openGraph: {
       title: ogTitle,
