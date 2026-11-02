@@ -174,7 +174,7 @@ export default function PrivacyPage() {
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-[var(--color-brand-gold)]" />
-                      <span>info@odontohouse.com</span>
+                      <a href="mailto:odontohouse.ec@gmail.com" className="hover:underline">odontohouse.ec@gmail.com</a>
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4 text-[var(--color-brand-gold)]" />
