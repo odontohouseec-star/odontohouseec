@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { MapPin, Phone, Mail, CheckCircle, MessageCircle, Map } from "lucide-react";
 import { Dictionary } from "@/lib/dictionary";
 import { WA_NUMBER, MAP_SRC, SOCIAL } from "@/lib/constants";
+import { trackLead } from "@/lib/analytics";
 
 export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", treatment: "" });
@@ -20,6 +21,7 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
       ? `¡Hola! Me gustaría solicitar una cotización gratuita de Odonto House.\n\n👤 *Nombre:* ${form.name}\n📧 *Email:* ${form.email}\n📞 *Teléfono:* ${form.phone}\n🦷 *Tratamiento:* ${treatment}`
       : `Hello! I'd like to request a free quote from Odonto House.\n\n👤 *Name:* ${form.name}\n📧 *Email:* ${form.email}\n📞 *Phone:* ${form.phone}\n🦷 *Treatment:* ${treatment}`;
     const encoded = encodeURIComponent(message);
+    trackLead("form");
     window.open(`https://wa.me/${WA_NUMBER}?text=${encoded}`, "_blank", "noreferrer");
     setSent(true);
     setTimeout(() => setSent(false), 5000);

@@ -7,7 +7,8 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { en } from "@/locales/en";
 import { es } from "@/locales/es";
 import { CookieConsent } from "@/components/layout/CookieConsent";
-import { BASE_URL } from "@/lib/constants";
+import { WhatsAppClickTracker } from "@/components/layout/WhatsAppClickTracker";
+import { BASE_URL, GOOGLE_ADS_ID } from "@/lib/constants";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -161,6 +162,7 @@ export default async function RootLayout({
               anonymize_ip: true,
               cookie_flags: 'SameSite=Lax;Secure'
             });
+            gtag('config', '${GOOGLE_ADS_ID}');
           `}
         </Script>
         {/* Cloudflare Web Analytics */}
@@ -174,6 +176,7 @@ export default async function RootLayout({
         <LanguageProvider initialLanguage={locale}>
           {children}
           <CookieConsent />
+          <WhatsAppClickTracker />
         </LanguageProvider>
       </body>
     </html>

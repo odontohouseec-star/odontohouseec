@@ -249,7 +249,7 @@ export const es: typeof en = {
     email: "Correo Electrónico",
     phone: "Número de Teléfono (con código de país)",
     treatment: "Tratamiento de Interés",
-    treatmentOptions: ["Diseño de Sonrisa", "Ortodoncia", "Muelas del Juicio", "Blanqueamiento Dental", "Otro"],
+    treatmentOptions: ["Diseño de Sonrisa", "Implantes Dentales", "Ortodoncia", "Muelas del Juicio", "Blanqueamiento Dental", "Otro"],
     placeholderName: "Juan Pérez",
     placeholderEmail: "juan@ejemplo.com",
     submit: "Solicitar Consulta Gratis",

@@ -247,7 +247,7 @@ export const en = {
     email: "Email Address",
     phone: "Phone Number (with country code)",
     treatment: "Treatment of Interest",
-    treatmentOptions: ["Smile Design", "Orthodontics", "Wisdom Teeth", "Teeth Whitening", "Other"],
+    treatmentOptions: ["Smile Design", "Dental Implants", "Orthodontics", "Wisdom Teeth", "Teeth Whitening", "Other"],
     placeholderName: "John Doe",
     placeholderEmail: "john@example.com",
     submit: "Request Free Consultation",
