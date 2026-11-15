@@ -5,7 +5,7 @@ import { Dictionary } from "@/lib/dictionary";
 
 export const Testimonials = ({ t }: { t: Dictionary }) => {
   return (
-    <section className="py-14 md:py-24 bg-gray-50">
+    <section id="testimonials" className="py-14 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
           <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.testimonials.patientStories}</span>

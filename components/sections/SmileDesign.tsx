@@ -32,7 +32,7 @@ export const SmileDesign = ({ t }: { t: Dictionary }) => {
   const imagesReady = beforeLoaded && afterLoaded;
 
   return (
-    <section className="py-14 md:py-24 bg-white overflow-hidden">
+    <section id="results" className="py-14 md:py-24 bg-white overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-8 md:mb-12">
           <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">{t.smileDesign.results}</span>

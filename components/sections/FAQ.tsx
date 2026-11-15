@@ -9,7 +9,7 @@ export const FAQ = ({ t }: { t: Dictionary }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-14 md:py-24 bg-white">
+    <section id="faq" className="py-14 md:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
           <span className="text-[#8f6d21] font-bold uppercase tracking-widest text-xs md:text-sm">FAQ</span>

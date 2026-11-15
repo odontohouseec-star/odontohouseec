@@ -8,7 +8,7 @@ export const WhyEcuador = ({ t }: { t: Dictionary }) => {
     "transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02]";
 
   return (
-    <section className="py-14 md:py-24 bg-[var(--color-brand-blue)] relative overflow-hidden">
+    <section id="why-ecuador" className="py-14 md:py-24 bg-[var(--color-brand-blue)] relative overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/5 pointer-events-none animate-[ping_6s_ease-in-out_infinite]" style={{ animationDuration: "6s" }} />
       <div className="absolute -bottom-40 -left-20 w-80 h-80 rounded-full bg-[var(--color-brand-gold)]/10 pointer-events-none" />

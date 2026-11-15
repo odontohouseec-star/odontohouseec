@@ -27,7 +27,7 @@ export const Services = ({ t }: { t: Dictionary }) => {
   ];
 
   return (
-    <section className="py-14 md:py-24 bg-gray-50">
+    <section id="services" className="py-14 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16">
