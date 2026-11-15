@@ -6,8 +6,8 @@ import { Dictionary } from "@/lib/dictionary";
 import { WA_NUMBER, MAP_SRC, SOCIAL } from "@/lib/constants";
 import { trackLead } from "@/lib/analytics";
 
-export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", treatment: "" });
+export const Footer = ({ t, locale, defaultTreatment = "" }: { t: Dictionary; locale: string; defaultTreatment?: string }) => {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", treatment: defaultTreatment });
   const [sent, setSent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -192,6 +192,12 @@ export const Footer = ({ t, locale }: { t: Dictionary; locale: string }) => {
             </a>
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+            <a href="/dental-implants-ecuador" className="hover:text-[var(--color-brand-gold)] transition-colors">
+              {locale === "es" ? "Implantes Dentales" : "Dental Implants"}
+            </a>
+            <a href="/veneers-ecuador" className="hover:text-[var(--color-brand-gold)] transition-colors">
+              {locale === "es" ? "Carillas y Diseño de Sonrisa" : "Veneers & Smile Design"}
+            </a>
             <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-brand-gold)] transition-colors">
               {locale === "es" ? "Política de Privacidad" : "Privacy Policy"}
             </a>

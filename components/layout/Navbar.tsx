@@ -60,12 +60,12 @@ export const Navbar = () => {
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
-          <div className="flex items-center">
+          <a href="/" aria-label="Odonto House home" className="flex items-center">
             <Image src="/logo-dark.webp" alt="Odonto House" width={160} height={80} priority fetchPriority="high" unoptimized={true}
               className={`h-14 md:h-20 w-auto object-contain transition-all duration-500 ${isScrolled ? "" : "brightness-0 invert"}`}
               style={isScrolled ? {} : { filter: "brightness(0) invert(1)" }}
             />
-          </div>
+          </a>
 
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2">

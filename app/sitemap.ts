@@ -10,6 +10,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${BASE_URL}/dental-implants-ecuador`,
+      lastModified: new Date('2026-11-15'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/veneers-ecuador`,
+      lastModified: new Date('2026-11-15'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${BASE_URL}/privacy`,
       lastModified: new Date('2026-05-21'),
       changeFrequency: 'yearly',
