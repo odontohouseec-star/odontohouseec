@@ -77,6 +77,14 @@ function AnimatedStat({
   );
 }
 
+// Heights differ per logo so they look the same visual size.
+const BRANDS = [
+  { name: "Invisalign", src: "/brands/invisalign.svg", h: "h-6 md:h-7" },
+  { name: "3M", src: "/brands/3m.svg", h: "h-8 md:h-9" },
+  { name: "Straumann", src: "/brands/straumann.svg", h: "h-6 md:h-7" },
+  { name: "Dentsply Sirona", src: "/brands/dentsply-sirona.svg", h: "h-9 md:h-10" },
+];
+
 // ── TrustBar ──────────────────────────────────────────────────────────────────
 export const TrustBar = ({ t }: { t: Dictionary }) => {
   const { ref, inView } = useInView(0.2);
@@ -136,14 +144,16 @@ export const TrustBar = ({ t }: { t: Dictionary }) => {
           <span className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2 md:mb-0">
             {t.trustBar.materialsTitle}
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-            {["Invisalign", "3M", "Straumann", "Dentsply"].map((brand: string) => (
-              <span
-                key={brand}
-                className="text-sm md:text-base font-bold text-gray-400 hover:text-[var(--color-brand-gold)] transition-colors duration-300"
-              >
-                {brand}
-              </span>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-12">
+            {BRANDS.map((brand) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={brand.name}
+                src={brand.src}
+                alt={brand.name}
+                loading="lazy"
+                className={`${brand.h} w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300`}
+              />
             ))}
           </div>
         </Reveal>

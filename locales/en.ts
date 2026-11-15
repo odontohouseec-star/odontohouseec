@@ -21,7 +21,7 @@ export const en = {
     usPatients: "US Patients",
     yearsExperience: "Years Experience",
     daysTreatment: "Days Treatment",
-    materialsTitle: "Our Materials & Partners",
+    materialsTitle: "Brands We Use",
   },
   smileDesign: {
     title: "Flawless Smile Design",

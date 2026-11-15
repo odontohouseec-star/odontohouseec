@@ -23,7 +23,7 @@ export const es: typeof en = {
     usPatients: "Pacientes de EE.UU.",
     yearsExperience: "Años de Experiencia",
     daysTreatment: "Días de Tratamiento",
-    materialsTitle: "Nuestros Materiales y Socios",
+    materialsTitle: "Marcas que usamos",
   },
   smileDesign: {
     title: "Diseño de Sonrisa Impecable",
