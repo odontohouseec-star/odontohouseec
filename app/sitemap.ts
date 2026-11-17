@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { BASE_URL } from '@/lib/constants'
+import { GUIDE_SLUGS, GUIDES_UPDATED } from '@/lib/guides'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -21,6 +22,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/guides`,
+      lastModified: new Date(GUIDES_UPDATED),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    ...GUIDE_SLUGS.map((slug) => ({
+      url: `${BASE_URL}/guides/${slug}`,
+      lastModified: new Date(GUIDES_UPDATED),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
     {
       url: `${BASE_URL}/privacy`,
       lastModified: new Date('2026-05-21'),

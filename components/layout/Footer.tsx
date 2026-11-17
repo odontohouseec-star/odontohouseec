@@ -198,6 +198,9 @@ export const Footer = ({ t, locale, defaultTreatment = "" }: { t: Dictionary; lo
             <a href="/veneers-ecuador" className="hover:text-[var(--color-brand-gold)] transition-colors">
               {locale === "es" ? "Carillas y Diseño de Sonrisa" : "Veneers & Smile Design"}
             </a>
+            <a href="/guides" className="hover:text-[var(--color-brand-gold)] transition-colors">
+              {locale === "es" ? "Guías" : "Guides"}
+            </a>
             <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-brand-gold)] transition-colors">
               {locale === "es" ? "Política de Privacidad" : "Privacy Policy"}
             </a>
