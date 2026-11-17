@@ -1,4 +1,4 @@
-import { BASE_URL, WA_PHONE } from "@/lib/constants";
+import { BASE_URL, WA_PHONE, SOCIAL } from "@/lib/constants";
 
 export const SchemaOrg = () => {
   const organizationSchema = {
@@ -19,6 +19,35 @@ export const SchemaOrg = () => {
     "telephone": WA_PHONE,
     "email": "elenazbm@hotmail.com",
     "priceRange": "$$",
+    "logo": `${BASE_URL}/logo-dark.png`,
+    "sameAs": [SOCIAL.instagram, SOCIAL.tiktok, SOCIAL.facebook],
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Credit Card, Zelle, Cash, Wire Transfer",
+    "knowsLanguage": ["en", "es"],
+    "medicalSpecialty": ["Dentistry", "CosmeticDentistry"],
+    "isAcceptingNewPatients": true,
+    "employee": { "@id": `${BASE_URL}/#doctor` },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Dental treatments for international patients (average prices, USD)",
+      "itemListElement": [
+        ["Porcelain Veneer (Emax), per tooth", 350, `${BASE_URL}/veneers-ecuador`],
+        ["Hollywood Smile (10-12 veneers)", 4200, `${BASE_URL}/veneers-ecuador`],
+        ["Single Dental Implant", 950, `${BASE_URL}/dental-implants-ecuador`],
+        ["All-on-4 Implants, per arch", 8500, `${BASE_URL}/dental-implants-ecuador`],
+        ["All-on-6 Implants, per arch", 12000, `${BASE_URL}/dental-implants-ecuador`],
+        ["Zirconia Crown, per tooth", 400, BASE_URL],
+        ["Invisalign / Clear Aligners", 2200, BASE_URL],
+        ["Laser Teeth Whitening, per session", 250, BASE_URL],
+        ["Root Canal Treatment, per tooth", 300, BASE_URL],
+      ].map(([name, price, url]) => ({
+        "@type": "Offer",
+        "itemOffered": { "@type": "MedicalProcedure", "name": name },
+        "price": price,
+        "priceCurrency": "USD",
+        "url": url,
+      })),
+    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -35,8 +64,8 @@ export const SchemaOrg = () => {
     ],
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "-2.1894",
-      "longitude": "-79.8898",
+      "latitude": "-2.1610833",
+      "longitude": "-79.9140833",
     },
     "areaServed": [
       {
@@ -77,7 +106,8 @@ export const SchemaOrg = () => {
       "addressCountry": "EC",
     },
     "telephone": WA_PHONE,
-    "sameAs": "https://instagram.com/odontohouse",
+    "sameAs": [SOCIAL.instagram],
+    "knowsLanguage": ["en", "es"],
     "worksFor": {
       "@id": `${BASE_URL}/#organization`,
     },

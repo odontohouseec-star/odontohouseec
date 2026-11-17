@@ -9,7 +9,7 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/share/1E4Z3Cuzws/",
 } as const;
 
-export const BASE_URL = "https://odontohouse.com";
+export const BASE_URL = "https://www.odontohouse.com";
 
 export const GOOGLE_ADS_ID = "AW-18432745273";
 export const GOOGLE_ADS_LABELS = {
