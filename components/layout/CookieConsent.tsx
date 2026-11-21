@@ -66,18 +66,26 @@ const applyConsent = (prefs: CookiePreferences) => {
       analytics_storage: prefs.analytics ? "granted" : "denied",
       ad_storage: prefs.marketing ? "granted" : "denied",
       ad_user_data: prefs.marketing ? "granted" : "denied",
-      ad_personalization: prefs.marketing ? "granted" : "denied",
+      ad_personalization: "denied", // health-ads policy: never personalised
     });
   }
 };
 
-export const CookieConsent = () => {
+interface CookieConsentProps {
+  /** Consent already granted by default for this visitor's country (non-EEA). */
+  initialPreferences?: Partial<CookiePreferences>;
+}
+
+export const CookieConsent = ({ initialPreferences }: CookieConsentProps = {}) => {
   const { language } = useLanguage();
   const pathname = usePathname();
   const t = translations[language as keyof typeof translations] || translations.es;
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
+  const [preferences, setPreferences] = useState<CookiePreferences>({
+    ...defaultPreferences,
+    ...initialPreferences,
+  });
   const [showFloatingButton, setShowFloatingButton] = useState(false);
   const isPrivacyPage = pathname === "/privacy";
 

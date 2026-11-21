@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { en } from "@/locales/en";
@@ -9,11 +9,30 @@ import { es } from "@/locales/es";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { WhatsAppClickTracker } from "@/components/layout/WhatsAppClickTracker";
 import { BASE_URL, GOOGLE_ADS_ID } from "@/lib/constants";
+import { getConsentDefaults } from "@/lib/consent";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
+
+/**
+ * Country of the current visitor, used to pick the right Consent Mode default.
+ * The site runs on Vercel (x-vercel-ip-country); cf-ipcountry covers Cloudflare.
+ * An empty string means unknown, which keeps consent denied.
+ */
+async function getVisitorCountry(): Promise<string> {
+  try {
+    const requestHeaders = await headers();
+    return (
+      requestHeaders.get("x-vercel-ip-country") ??
+      requestHeaders.get("cf-ipcountry") ??
+      ""
+    );
+  } catch {
+    return "";
+  }
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
@@ -126,6 +145,10 @@ export default async function RootLayout({
   const locale = (cookieStore.get("NEXT_LOCALE")?.value as "en" | "es") || "en";
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-VQCZE8V921";
 
+  const country = await getVisitorCountry();
+  const consentDefaults = getConsentDefaults(country);
+  const consentGranted = consentDefaults.ad_storage === "granted";
+
   return (
     <html
       lang={locale}
@@ -133,33 +156,33 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Google Consent Mode v2 — default to denied until user interacts */}
+        {/* Google Consent Mode v2 — opt-in only where the law requires it (EEA/UK/CH) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              var consent = { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', functionality_storage: 'granted', personalization_storage: 'granted', security_storage: 'granted' };
+              var consent = ${JSON.stringify(consentDefaults)};
               try {
                 var stored = localStorage.getItem('cookie_consent');
                 if (stored) {
                   var prefs = JSON.parse(stored);
-                  if (prefs.analytics) consent.analytics_storage = 'granted';
-                  if (prefs.marketing) { consent.ad_storage = 'granted'; consent.ad_user_data = 'granted'; consent.ad_personalization = 'granted'; }
+                  consent.analytics_storage = prefs.analytics ? 'granted' : 'denied';
+                  consent.ad_storage = prefs.marketing ? 'granted' : 'denied';
+                  consent.ad_user_data = prefs.marketing ? 'granted' : 'denied';
                 }
               } catch(e) {}
               gtag('consent', 'default', consent);
             `,
           }}
         />
-        {/* Google Analytics — loads with consent already defaulted */}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
-        <Script id="google-analytics" strategy="lazyOnload">
+        {/* Google Analytics — loads as soon as the page is interactive so fast ad clicks are measured */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
               page_title: document.title,
-              anonymize_ip: true,
               cookie_flags: 'SameSite=Lax;Secure'
             });
             gtag('config', '${GOOGLE_ADS_ID}');
@@ -175,7 +198,9 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         <LanguageProvider initialLanguage={locale}>
           {children}
-          <CookieConsent />
+          <CookieConsent
+            initialPreferences={{ analytics: consentGranted, marketing: consentGranted }}
+          />
           <WhatsAppClickTracker />
         </LanguageProvider>
       </body>
